@@ -9,9 +9,9 @@ class Home extends React.Component {
     return (
       <Wrapper>
         <Header />
-        <Wrapper backgroundImage={flatBackground} height="1000px">
-          <Wrapper>
-            <ChairSvgfrom width={300} height={700} />
+        <Wrapper backgroundImage={flatBackground} height="1000px" >
+          <Wrapper  position="absolute" top="620px" left="260px">
+            <ChairSvgfrom width={450} height={450}/>
           </Wrapper>
         </Wrapper>
       </Wrapper>
