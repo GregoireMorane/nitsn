@@ -1,6 +1,7 @@
 import React from "react";
-import { Wrapper } from '../../components/Wrapper/index'
+import { Wrapper } from "../../components/Wrapper/";
 import Header from "../Header";
+
 import flatBackground from '../../assets/appartement2.jpg'
 import ChairSvgfrom from '../../components/SVG/ChairSvg'
 import Center from 'react-center';
@@ -19,7 +20,6 @@ class Home extends React.Component {
     });
   }
   render() {
-
     return (
       <Wrapper>
         <Header />
