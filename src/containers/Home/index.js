@@ -26,7 +26,7 @@ class Home extends React.Component {
           width={this.state.screenWidth}
         >
           <Wrapper position="absolute" bottom="380px" left="550px">
-            <ChairSvgfrom width={450} height={500} />
+            <ChairSvgfrom width={450} height={468} />
           </Wrapper>
         </Wrapper>
       </Wrapper>
