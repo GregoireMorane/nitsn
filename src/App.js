@@ -1,16 +1,10 @@
-import React from 'react';
+import React from "react";
 
-import './App.css';
-import ChairSvg from './components/SVG/ChairSvg';
-import TestExport from './components/SVG/TestExport';
+import "./App.css";
+import Home from "./containers/Home";
 
 function App() {
-  return (
-    <div className="App">
-     <ChairSvg width={600} height={700}/>
-     <TestExport width={600} height={700}/>
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
