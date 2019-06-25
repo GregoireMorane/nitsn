@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 744.09447 1052.362179" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <filter id="c">
+   <feGaussianBlur stdDeviation="1.053"/>
+  </filter>
+  <filter id="d">
+   <feGaussianBlur stdDeviation=".5555"/>
+  </filter>
+  <linearGradient id="b" x1="1749.6" x2="1889.5" gradientUnits="userSpaceOnUse">
+   <stop offset="0"/>
+   <stop stop-color="#ecd454" offset=".0462"/>
+   <stop stop-color="#cc9408" offset=".1769"/>
+   <stop stop-color="#746626" offset=".2617"/>
+   <stop stop-color="#e8cc4c" offset=".458"/>
+   <stop stop-color="#fcfc80" offset=".5973"/>
+   <stop stop-color="#8c5000" offset=".7569"/>
+   <stop stop-color="#d09c14" offset=".9493"/>
+   <stop stop-color="#703400" offset="1"/>
+  </linearGradient>
+  <linearGradient id="a" x2="0" y1="-475.08" y2="-574.77" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#fff" stop-opacity=".8333" offset="0"/>
+   <stop stop-color="#fff" stop-opacity="0" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g transform="matrix(5.2587 0 0 7.4787 -9197.8 4158.1)">
+  <path d="m1751.8-553.43h137.94v137.94h-137.94z" filter="url(#c)"/>
+  <path d="m1750.1-555.13h138.88v138.88h-138.88z" fill="#800000" filter="url(#d)"/>
+  <path d="m1750.6-554.66h137.94v137.94h-137.94z" fill="url(#b)"/>
+  <path d="m1755.8-549.42h127.46v127.46h-127.46z" stroke="#000" stroke-width="1.848"/>
+  <path d="m1755-550.67v37.773c59.751-10.138 54.927 39.602 128.99 29.918v-67.691h-128.99z" fill="url(#a)"/>
+ </g>
+</svg>
