@@ -1,8 +1,11 @@
 import React from "react";
 import { Wrapper } from "../../components/Wrapper/";
 import Header from "../Header";
-import flatBackground from "../../assets/flatBackground.jpg";
-import ChairSvgfrom from "../../components/SVG/ChairSvg";
+
+import flatBackground from '../../assets/appartement2.jpg'
+import ChairSvgfrom from '../../components/SVG/ChairSvg'
+import Center from 'react-center';
+import HorlogeSvg from "../../components/SVG/HorlogeSvg";
 
 class Home extends React.Component {
   state = {
@@ -20,15 +23,15 @@ class Home extends React.Component {
     return (
       <Wrapper>
         <Header />
-        <Wrapper
-          backgroundImage={flatBackground}
-          height={this.state.screenHeight}
-          width={this.state.screenWidth}
-        >
-          <Wrapper position="absolute" bottom="380px" left="550px">
-            <ChairSvgfrom width={450} height={468} />
+        <Center>
+          <img src={flatBackground} alt="appartement" />
+          <Wrapper position="absolute" top="680px" left="390px">
+            <ChairSvgfrom width={416} height={370} />
           </Wrapper>
-        </Wrapper>
+          <Wrapper position="absolute" top="280px" left="790px">
+            <HorlogeSvg width={416} height={370} />
+          </Wrapper>
+        </Center>
       </Wrapper>
     );
   }
