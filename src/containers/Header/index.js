@@ -4,9 +4,6 @@ import { Typo } from "../../components/Typo";
 import { Wrapper } from "../../components/Wrapper";
 
 class Header extends React.Component {
-  handleClick = () => {
-    console.log("clicked");
-  };
   render() {
     return (
       <Wrapper height="100px" backgroundColor="#fff">
