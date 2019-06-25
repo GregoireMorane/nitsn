@@ -1,22 +1,19 @@
 import React from "react";
 
-import { Typo } from "../../components/Title";
+import { Typo } from "../../components/Typo";
 import { Wrapper } from "../../components/Wrapper";
-import { Button } from "../../components/Button";
 
 class Header extends React.Component {
-  handleClick = () => {
-    console.log("clicked");
-  };
   render() {
     return (
-      <Wrapper height="100px" backgroundColor="#4682B4">
-        <Typo text="test" />
-        <Button
-          text="clique moi"
-          width="60"
-          height="30"
-          action={this.handleClick}
+      <Wrapper height="100px" backgroundColor="#fff">
+        <Typo
+          text="nitsn"
+          color="black"
+          textAlign="left"
+          fontSize="50px"
+          padding="35px 0px 0px 20px"
+          letterSpacing="7px"
         />
       </Wrapper>
     );
