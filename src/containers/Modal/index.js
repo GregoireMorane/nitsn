@@ -31,28 +31,81 @@ class Modal extends React.Component {
     screenWidth: "",
     screenHeight: "",
     shouldRenderBlockColors: false,
-    selectedColor: "#B0E0E6"
+    dossierSelectedColor: "",
+    dossierLateralSelectedColor: "",
+    assiseSelectedColor: "",
+    shouldRenderBlockChairElements: false,
+    part: "",
   };
 
   componentWillMount() {
     this.setState({
       screenHeight: window.innerHeight + "px",
-      screenWidth: window.innerWidth + "px"
+      screenWidth: window.innerWidth + "px",
+      dossierSelectedColor: this.props.colorDossier,
+      dossierLateralSelectedColor: this.props.colorDossierLateral,
+      assiseSelectedColor: this.props.colorAssise,
     });
   }
 
-  shouldRenderBlockColors = color => {
+  shouldRenderBlockColors = (color, part) => {
     if (this.state.shouldRenderBlockColors === true) {
-      this.setState({
-        shouldRenderBlockColors: false,
-        selectedColor: color
-      });
+      if (this.state.part === "dossier") {
+        this.setState({
+          dossierSelectedColor: color
+        });
+      } else if (this.state.part === "dossier lateral") {
+        this.setState({
+          dossierLateralSelectedColor: color
+        });
+      } else if (this.state.part === "assise") {
+        this.setState({
+          assiseSelectedColor: color
+        });
+      }
     } else {
       this.setState({
         shouldRenderBlockColors: true
       });
     }
   };
+
+  shouldRenderBlockChairElements = () => {
+    this.setState({ shouldRenderBlockChairElements: !this.state.shouldRenderBlockChairElements })
+  }
+
+  shouldSetPart = part => {
+    console.log("part in shouldSetPart", part)
+    this.setState({ part: part, shouldRenderBlockColors: true });
+  }
+
+  shouRenderBlockColors = () => {
+    this.setState({ shouldRenderBlockColors: !this.state.shouldRenderBlockColors })
+  }
+
+  shouldCancelBlockColor = () => {
+    this.setState({ shouldRenderBlockColors: false })
+    if (this.state.part === "dossier") {
+      this.setState({
+        dossierSelectedColor: "#B0E0E6"
+      });
+    } else if (this.state.part === "dossier lateral") {
+      this.setState({
+        dossierLateralSelectedColor: "#B0E0E6"
+      });
+    } else if (this.state.part === "assise") {
+      this.setState({
+        assiseSelectedColor: "#B0E0E6"
+      });
+    }
+  }
+
+  validatePersonnalisation = () => {
+    this.props.setDossierColor(this.state.dossierSelectedColor);
+    this.props.setDossierLateralColor(this.state.dossierLateralSelectedColor);
+    this.props.setAssiseColor(this.state.assiseSelectedColor);
+    this.props.shouldRenderModal();
+  }
 
   renderBlockColors = () => {
     if (this.state.shouldRenderBlockColors === true) {
@@ -85,8 +138,43 @@ class Modal extends React.Component {
               </Wrapper>
             ))}
           </Wrapper>
+          <Wrapper>
+            <Button text="Reset" action={this.shouldCancelBlockColor} />
+            <Button text="Validate" action={this.shouRenderBlockColors} />
+          </Wrapper>
         </Wrapper>
       );
+    } else if (this.state.shouldRenderBlockChairElements === true) {
+      return (
+        <Wrapper
+          flex="1"
+          display="flex"
+          width="100%"
+          borderBottom="3px solid white"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Wrapper>
+            <Typo text="Choix de l'element a personnnaliser" fontWeight="bold" />
+          </Wrapper>
+          <Wrapper paddingTop="15px">
+            <Wrapper action={() => this.shouldSetPart("dossier")}>
+
+              <Typo text="Dossier" fontWeight="bold" />
+            </Wrapper>
+            <Wrapper action={() => this.shouldSetPart("dossier lateral")}>
+
+              <Typo text="Dossier lateral" fontWeight="bold" />
+            </Wrapper>
+            <Wrapper action={() => this.shouldSetPart("assise")}>
+
+              <Typo text="Assise" fontWeight="bold" />
+            </Wrapper>
+          </Wrapper>
+
+        </Wrapper>
+      )
     }
     return (
       <Wrapper
@@ -97,7 +185,7 @@ class Modal extends React.Component {
         flexDirection="column"
         alignItems="center"
         justifyContent="center"
-        action={this.shouldRenderBlockColors}
+        action={this.shouldRenderBlockChairElements}
       >
         <Wrapper>
           <Typo text="Choix des couleurs" fontWeight="bold" />
@@ -108,8 +196,9 @@ class Modal extends React.Component {
       </Wrapper>
     );
   };
+
   render() {
-    console.log(this.state.selectedColor);
+    console.log(this.state.part)
     return (
       <Wrapper
         display="flex"
@@ -130,7 +219,9 @@ class Modal extends React.Component {
               <ChairSvgfrom
                 width="416"
                 height="370"
-                selectedColor={this.state.selectedColor}
+                dossierSelectedColor={this.state.dossierSelectedColor}
+                dossierLateralSelectedColor={this.state.dossierLateralSelectedColor}
+                assiseSelectedColor={this.state.assiseSelectedColor}
               />
             </Wrapper>
             <Wrapper flex="1" display="flex" justifyContent="center">
@@ -158,6 +249,7 @@ class Modal extends React.Component {
               text="Appliquer la personalisation"
               backgroundColor="black"
               color="white"
+              action={this.validatePersonnalisation}
             />
             <Button
               height="50px"
