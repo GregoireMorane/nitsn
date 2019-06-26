@@ -7,8 +7,9 @@ const WrapperStyled = styled.div`
   padding: ${props => props.padding || "none"};
   margin: ${props => props.margin || "none"};
   background-color: ${props => props.backgroundColor || null};
-  background-size: ${props => props.backgroundColor || "cover"};
+  background-size: ${props => props.backgroundSize || null};
   background-image: url("${props => props.backgroundImage || null}");
+  background-repeat:${props => props.backgroundRepeat || null};
   position: ${props => props.position || null};
   top: ${props => props.top || null};
   bottom: ${props => props.bottom || null};
@@ -16,12 +17,14 @@ const WrapperStyled = styled.div`
   right: ${props => props.right || null};
 `;
 
-const Wrapper = ({ children, backgroundColor, width, height, backgroundImage, padding, margin, position, top, bottom, left, right }) => (
+const Wrapper = ({ children, backgroundColor, width, height, backgroundImage,backgroundRepeat,backgroundSize, padding, margin, position, top, bottom, left, right }) => (
   <WrapperStyled
     height={height}
     width={width}
     backgroundColor={backgroundColor}
     backgroundImage={backgroundImage}
+    backgroundRepeat={backgroundRepeat}
+    backgroundSize={backgroundSize}
     padding={padding}
     margin={margin}
     position={position}
