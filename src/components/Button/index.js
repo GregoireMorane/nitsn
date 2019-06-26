@@ -2,17 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const ButtonStyled = styled.button`
-  width: ${props => props.width || "14px"};
-  height: ${props => props.height || "14px"};
-  background-color: ${props => props.backgroundColor || "#7FFF00"};
-  border: ${props => props.border || "none"};
+  width: ${props => props.width || null};
+  height: ${props => props.height || null};
+  background-color: ${props => props.backgroundColor || null};
+  border: ${props => props.border || null};
   text-align: ${props => props.textAlign || "center"};
-  color: ${props => props.color || "#ff0"};
+  color: ${props => props.color || "initial"};
   font-size: ${props => props.fontSize || "16px"};
   text-decoration: ${props => props.textDecoration || "none"};
   padding: ${props => props.padding || "10px"};
   margin: ${props => props.margin || "10px"};
-  display: ${props => props.display || "inline-block"};
+  display: ${props => props.display || "initial"};
 `;
 
 const Button = ({
