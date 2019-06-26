@@ -2,9 +2,9 @@ import React from "react";
 import { Wrapper } from "../../components/Wrapper/";
 import Header from "../Header";
 
-import flatBackground from '../../assets/appartement2.jpg'
-import ChairSvgfrom from '../../components/SVG/ChairSvg'
-import Center from 'react-center';
+import flatBackground from "../../assets/appartement2.jpg";
+import ChairSvgfrom from "../../components/SVG/ChairSvg";
+import Center from "react-center";
 import HorlogeSvg from "../../components/SVG/HorlogeSvg";
 
 class Home extends React.Component {

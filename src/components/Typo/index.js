@@ -4,11 +4,12 @@ import styled from "styled-components";
 const TypoStyled = styled.p`
   font-size: ${props => props.fontSize || "14px"};
   line-height: ${props => props.lineHeight || "14px"};
-  color: ${props => props.color || "#7FFF00"};
+  font-weight: ${props => props.fontWeight || "initial"};
+  color: ${props => props.color || "initial"};
   text-align: ${props => props.textAlign || "center"};
-  margin: ${props => props.margin || "0px"};
-  padding: ${props => props.padding || "0px"};
-  letter-spacing: ${props => props.letterSpacing || "0px"};
+  margin: ${props => props.margin || "auto"};
+  padding: ${props => props.padding || null};
+  letter-spacing: ${props => props.letterSpacing || null};
 `;
 
 const Typo = ({
@@ -19,7 +20,8 @@ const Typo = ({
   fontSize,
   margin,
   padding,
-  letterSpacing
+  letterSpacing,
+  fontWeight
 }) => (
   <TypoStyled
     color={color}
@@ -29,6 +31,7 @@ const Typo = ({
     margin={margin}
     padding={padding}
     letterSpacing={letterSpacing}
+    fontWeight={fontWeight}
   >
     {text}
   </TypoStyled>
