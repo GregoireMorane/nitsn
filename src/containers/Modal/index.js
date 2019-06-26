@@ -150,6 +150,7 @@ class Modal extends React.Component {
               text="quitter"
               backgroundColor="black"
               color="white"
+              action={this.props.shouldRenderModal}
             />
             <Button
               height="50px"

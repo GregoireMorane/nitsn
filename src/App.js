@@ -5,7 +5,7 @@ import Home from "./containers/Home";
 import Modal from "./containers/Modal";
 
 function App() {
-  return <Modal />;
+  return <Home />;
 }
 
 export default App;
