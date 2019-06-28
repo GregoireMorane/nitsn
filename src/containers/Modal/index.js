@@ -87,7 +87,6 @@ class Modal extends React.Component {
   };
 
   shouldSetPart = part => {
-    console.log("part in shouldSetPart", part);
     this.setState({ part: part, shouldRenderBlockColors: true });
   };
 
@@ -210,6 +209,14 @@ class Modal extends React.Component {
     );
   };
 
+  resetColors = () => {
+    this.setState({
+      dossierSelectedColor: this.props.colorDossier,
+      dossierLateralSelectedColor: this.props.colorDossierLateral,
+      assiseSelectedColor: this.props.colorAssise
+    });
+  };
+
   render() {
     if (this.state.shouldRender3DView === true) {
       return (
@@ -279,6 +286,7 @@ class Modal extends React.Component {
               text="reset"
               backgroundColor="black"
               color="white"
+              action={this.resetColors}
             />
             <Button
               height="50px"
