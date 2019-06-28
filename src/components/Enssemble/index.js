@@ -53,6 +53,7 @@ class Enssemble extends React.Component {
         height={this.state.screenHeight}
         width={this.state.screenWidth}
         position="relative" 
+        margin="auto"
       >
         <Wrapper position="absolute"      height={this.state.screenHeight}
         width={this.state.screenWidth}  >
