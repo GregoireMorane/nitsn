@@ -38,7 +38,8 @@ class Modal extends React.Component {
     shouldRenderBlockChairElements: false,
     part: "",
     shouldRender3DView: false,
-    src3DMAX: "https://myhub.autodesk360.com/ue288ba40/shares/public/SHabee1QT1a327cf2b7afe96de93b1079cec?mode=embed" 
+    src3DMAX:
+      "https://myhub.autodesk360.com/ue288ba40/shares/public/SHabee1QT1a327cf2b7afe96de93b1079cec?mode=embed"
   };
 
   componentWillMount() {
@@ -47,10 +48,9 @@ class Modal extends React.Component {
       screenWidth: window.innerWidth + "px",
       dossierSelectedColor: this.props.colorDossier,
       dossierLateralSelectedColor: this.props.colorDossierLateral,
-      assiseSelectedColor: this.props.colorAssise,
+      assiseSelectedColor: this.props.colorAssise
     });
   }
-
 
   shouldRenderBlockColors = (color, part) => {
     if (this.state.shouldRenderBlockColors === true) {
@@ -75,27 +75,30 @@ class Modal extends React.Component {
   };
 
   shouldRenderBlockChairElements = () => {
-    this.setState({ shouldRenderBlockChairElements: !this.state.shouldRenderBlockChairElements })
+    this.setState({
+      shouldRenderBlockChairElements: !this.state.shouldRenderBlockChairElements
+    });
   };
 
   shouldRender3DView = () => {
     this.setState({
       shouldRender3DView: !this.state.shouldRender3DView
-    })
-  }
-
+    });
+  };
 
   shouldSetPart = part => {
-    console.log("part in shouldSetPart", part)
+    console.log("part in shouldSetPart", part);
     this.setState({ part: part, shouldRenderBlockColors: true });
-  }
+  };
 
   shouRenderBlockColors = () => {
-    this.setState({ shouldRenderBlockColors: !this.state.shouldRenderBlockColors })
-  }
+    this.setState({
+      shouldRenderBlockColors: !this.state.shouldRenderBlockColors
+    });
+  };
 
   shouldCancelBlockColor = () => {
-    this.setState({ shouldRenderBlockColors: false })
+    this.setState({ shouldRenderBlockColors: false });
     if (this.state.part === "dossier") {
       this.setState({
         dossierSelectedColor: "#B0E0E6"
@@ -109,15 +112,14 @@ class Modal extends React.Component {
         assiseSelectedColor: "#B0E0E6"
       });
     }
-  }
-
+  };
 
   validatePersonnalisation = () => {
     this.props.setDossierColor(this.state.dossierSelectedColor);
     this.props.setDossierLateralColor(this.state.dossierLateralSelectedColor);
     this.props.setAssiseColor(this.state.assiseSelectedColor);
     this.props.shouldRenderModal();
-  }
+  };
 
   renderBlockColors = () => {
     if (this.state.shouldRenderBlockColors === true) {
@@ -168,25 +170,24 @@ class Modal extends React.Component {
           justifyContent="center"
         >
           <Wrapper>
-            <Typo text="Choix de l'element a personnnaliser" fontWeight="bold" />
+            <Typo
+              text="Choix de l'element a personnnaliser"
+              fontWeight="bold"
+            />
           </Wrapper>
           <Wrapper paddingTop="15px">
             <Wrapper action={() => this.shouldSetPart("dossier")}>
-
               <Typo text="Dossier" fontWeight="bold" />
             </Wrapper>
             <Wrapper action={() => this.shouldSetPart("dossier lateral")}>
-
               <Typo text="Dossier lateral" fontWeight="bold" />
             </Wrapper>
             <Wrapper action={() => this.shouldSetPart("assise")}>
-
               <Typo text="Assise" fontWeight="bold" />
             </Wrapper>
           </Wrapper>
-
         </Wrapper>
-      )
+      );
     }
     return (
       <Wrapper
@@ -211,7 +212,12 @@ class Modal extends React.Component {
 
   render() {
     if (this.state.shouldRender3DView === true) {
-     return   <View3D shouldRender3DView={this.shouldRender3DView} src3DMAX={this.state.src3DMAX}/>
+      return (
+        <View3D
+          shouldRender3DView={this.shouldRender3DView}
+          src3DMAX={this.state.src3DMAX}
+        />
+      );
     }
     return (
       <Wrapper
@@ -234,7 +240,9 @@ class Modal extends React.Component {
                 width="416"
                 height="370"
                 dossierSelectedColor={this.state.dossierSelectedColor}
-                dossierLateralSelectedColor={this.state.dossierLateralSelectedColor}
+                dossierLateralSelectedColor={
+                  this.state.dossierLateralSelectedColor
+                }
                 assiseSelectedColor={this.state.assiseSelectedColor}
               />
             </Wrapper>
@@ -275,7 +283,7 @@ class Modal extends React.Component {
             <Button
               height="50px"
               width="70px"
-              text="3DMAXXX"
+              text="3D"
               backgroundColor="black"
               color="white"
               action={this.shouldRender3DView}

@@ -1,20 +1,34 @@
 import React from "react";
-import { Wrapper } from "../../components/Wrapper"
-import { Button } from '../../components/Button'
-class View3D extends React.Component {
+import { Wrapper } from "../../components/Wrapper";
+import { Button } from "../../components/Button";
 
+class View3D extends React.Component {
   render() {
     return (
-      <Wrapper>
-        <iframe src={this.props.src3DMAX}
-          width="640"
-          height="480"
+      <Wrapper
+        flex="1"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <iframe
+          src={this.props.src3DMAX}
+          width="1024"
+          height="768"
           allowfullscreen="true"
           webkitallowfullscreen="true"
           mozallowfullscreen="true"
-          frameborder="0">
-        </iframe>
-        <Button action={this.props.shouldRender3DView} text="close" width="70px" height="50px"/>
+          frameborder="0"
+        />
+        <Button
+          action={this.props.shouldRender3DView}
+          text="close"
+          height="50px"
+          width="70px"
+          backgroundColor="black"
+          color="white"
+        />
       </Wrapper>
     );
   }

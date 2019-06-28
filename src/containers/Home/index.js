@@ -19,8 +19,8 @@ class Home extends React.Component {
   render() {
     return (
       <Wrapper>
-        <Header/>
-         <Enssemble/>
+        <Header />
+        <Enssemble />
       </Wrapper>
     );
   }
