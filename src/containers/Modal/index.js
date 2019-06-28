@@ -8,6 +8,7 @@ import pantone from "../../assets/pantone.png";
 import texture from "../../assets/texture.png";
 import size from "../../assets/size.png";
 import ChairSvgfrom from "../../components/SVG/ChairSvg";
+import View3D from "../View3D";
 
 class Modal extends React.Component {
   state = {
@@ -36,6 +37,8 @@ class Modal extends React.Component {
     assiseSelectedColor: "",
     shouldRenderBlockChairElements: false,
     part: "",
+    shouldRender3DView: false,
+    src3DMAX: "https://myhub.autodesk360.com/ue288ba40/shares/public/SHabee1QT1a327cf2b7afe96de93b1079cec?mode=embed" 
   };
 
   componentWillMount() {
@@ -47,6 +50,7 @@ class Modal extends React.Component {
       assiseSelectedColor: this.props.colorAssise,
     });
   }
+
 
   shouldRenderBlockColors = (color, part) => {
     if (this.state.shouldRenderBlockColors === true) {
@@ -72,7 +76,14 @@ class Modal extends React.Component {
 
   shouldRenderBlockChairElements = () => {
     this.setState({ shouldRenderBlockChairElements: !this.state.shouldRenderBlockChairElements })
+  };
+
+  shouldRender3DView = () => {
+    this.setState({
+      shouldRender3DView: !this.state.shouldRender3DView
+    })
   }
+
 
   shouldSetPart = part => {
     console.log("part in shouldSetPart", part)
@@ -99,6 +110,7 @@ class Modal extends React.Component {
       });
     }
   }
+
 
   validatePersonnalisation = () => {
     this.props.setDossierColor(this.state.dossierSelectedColor);
@@ -198,7 +210,9 @@ class Modal extends React.Component {
   };
 
   render() {
-    console.log(this.state.part)
+    if (this.state.shouldRender3DView === true) {
+     return   <View3D shouldRender3DView={this.shouldRender3DView} src3DMAX={this.state.src3DMAX}/>
+    }
     return (
       <Wrapper
         display="flex"
@@ -257,6 +271,14 @@ class Modal extends React.Component {
               text="reset"
               backgroundColor="black"
               color="white"
+            />
+            <Button
+              height="50px"
+              width="70px"
+              text="3DMAXXX"
+              backgroundColor="black"
+              color="white"
+              action={this.shouldRender3DView}
             />
           </Wrapper>
         </Wrapper>
