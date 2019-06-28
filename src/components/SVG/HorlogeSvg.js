@@ -15,7 +15,7 @@ class HorlogeSvg extends React.Component {
   render() {
     return (
 
-   < svg  viewBox="0 0 2000 2000" width={this.props.width} height={this.props.height} onClick={this.handleChangeColor}>
+   < svg  viewBox="0 0 800 800" width={this.props.width} height={this.props.height} onClick={this.handleChangeColor}>
     <defs>
       <linearGradient
         id="horloge_svg__a"

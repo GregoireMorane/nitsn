@@ -50,30 +50,27 @@ class Enssemble extends React.Component {
     }
     return (
       <Wrapper
-        backgroundImage={flatBackground}
-        position="relative"
-        display="flex"
-        flex="1"
         height={this.state.screenHeight}
         width={this.state.screenWidth}
-        backgroundRepeat="no-repeat"
+        position="relative" 
       >
-        <Wrapper
-          position="absolute"
-          top="380px"
-          left="180px"
-          action={this.shouldRenderModal}
-        >
+        <Wrapper position="absolute"      height={this.state.screenHeight}
+        width={this.state.screenWidth}  >
+          <img src={flatBackground} alt="flat" height="100%"
+            width="100%"/>
+        </Wrapper>
+          
+        <Wrapper position="absolute"top="40%" left ="20%" action={this.shouldRenderModal}>
           <ChairSvg
-            width={470}
-            height={370}
+            width={400}
+            height={400}
             dossierSelectedColor={this.state.dossierSelectedColor}
             dossierLateralSelectedColor={this.state.dossierLateralSelectedColor}
             assiseSelectedColor={this.state.assiseSelectedColor}
-          />
+          /> 
         </Wrapper>
-        <Wrapper position="absolute" top="20px" left="750px">
-          <HorlogeSvg width={316} height={370} />
+        <Wrapper position="absolute" left="50%" top="15%">
+          <HorlogeSvg width={80} height={80} />
         </Wrapper>
       </Wrapper>
     );

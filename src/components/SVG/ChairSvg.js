@@ -4,9 +4,10 @@ class ChairSvg extends React.Component {
   render() {
     return (
       <svg
-        viewBox="0 0 600 500"
+        viewBox="0 0 520 470"
         width={this.props.width}
         height={this.props.height}
+        
       >
         <g fillRule="evenodd">
           <path
