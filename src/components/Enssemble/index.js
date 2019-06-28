@@ -2,7 +2,7 @@ import React from "react";
 import HorlogeSvg from "../SVG/HorlogeSvg";
 import ChairSvg from "../SVG/ChairSvg";
 import { Wrapper } from "../Wrapper";
-import flatBackground from "../../assets/appartement3.jpg";
+import flatBackground from "../../assets/appartement4.png";
 import Modal from "../../containers/Modal";
 
 class Enssemble extends React.Component {
