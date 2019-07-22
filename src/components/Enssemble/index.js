@@ -52,23 +52,29 @@ class Enssemble extends React.Component {
       <Wrapper
         height={this.state.screenHeight}
         width={this.state.screenWidth}
-        position="relative" 
+        position="relative"
         margin="auto"
       >
-        <Wrapper position="absolute"      height={this.state.screenHeight}
-        width={this.state.screenWidth}  >
-          <img src={flatBackground} alt="flat" height="100%"
-            width="100%"/>
+        <Wrapper
+          position="absolute"
+          height={this.state.screenHeight}
+          width={this.state.screenWidth}
+        >
+          <img src={flatBackground} alt="flat" height="100%" width="100%" />
         </Wrapper>
-          
-        <Wrapper position="absolute"top="40%" left ="20%" action={this.shouldRenderModal}>
+        <Wrapper
+          position="absolute"
+          top="40%"
+          left="20%"
+          action={this.shouldRenderModal}
+        >
           <ChairSvg
             width={400}
             height={400}
             dossierSelectedColor={this.state.dossierSelectedColor}
             dossierLateralSelectedColor={this.state.dossierLateralSelectedColor}
             assiseSelectedColor={this.state.assiseSelectedColor}
-          /> 
+          />
         </Wrapper>
         <Wrapper position="absolute" left="50%" top="15%">
           <HorlogeSvg width={80} height={80} />

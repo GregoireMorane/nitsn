@@ -20,6 +20,7 @@ class View3D extends React.Component {
           webkitallowfullscreen="true"
           mozallowfullscreen="true"
           frameborder="0"
+          title="iFrame"
         />
         <Button
           action={this.props.shouldRender3DView}

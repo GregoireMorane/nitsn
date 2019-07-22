@@ -1,17 +1,20 @@
 import React from "react";
 
 class testExport extends React.Component {
-
   state = {
     color: "#B0E0E6"
-  }
+  };
   handleClick = () => {
-    this.setState({ color: "#000060" })
-  }
+    this.setState({ color: "#000060" });
+  };
 
   render() {
     return (
-      < svg width={this.props.width} height={this.props.height} onClick={this.handleClick}>
+      <svg
+        width={this.props.width}
+        height={this.props.height}
+        onClick={this.handleClick}
+      >
         <path
           fill={this.state.color}
           stroke={this.state.color}
@@ -20,7 +23,6 @@ class testExport extends React.Component {
         />
       </svg>
     );
-
   }
 }
 export default testExport;

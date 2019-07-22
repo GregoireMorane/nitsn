@@ -7,7 +7,6 @@ class ChairSvg extends React.Component {
         viewBox="0 0 520 470"
         width={this.props.width}
         height={this.props.height}
-        
       >
         <g fillRule="evenodd">
           <path
