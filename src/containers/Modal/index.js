@@ -1,7 +1,7 @@
 import React from "react";
 import { Wrapper } from "../../components/Wrapper/";
 import { Typo } from "../../components/Typo/";
-import { Button } from "../../components/Button/";
+import { Button} from "../../components/Button/";
 import arrowLeft from "../../assets/arrow-left.png";
 import arrowRight from "../../assets/arrow-right.png";
 import pantone from "../../assets/pantone.png";
@@ -9,6 +9,8 @@ import texture from "../../assets/texture.png";
 import size from "../../assets/size.png";
 import ChairSvgfrom from "../../components/SVG/ChairSvg";
 import View3D from "../View3D";
+import iconLeave from "../../assets/x-button.png"
+import { ButtonIcon } from "../../components/ButtonIcon";
 
 class Modal extends React.Component {
   state = {
@@ -264,12 +266,10 @@ class Modal extends React.Component {
             alignItems="center"
             justifyContent="center"
           >
-            <Button
-              height="50px"
-              width="70px"
-              text="quitter"
-              backgroundColor="black"
-              color="white"
+            <ButtonIcon
+               height="80px"
+               width="80px"
+              icon={iconLeave}
               action={this.props.shouldRenderModal}
             />
             <Button
