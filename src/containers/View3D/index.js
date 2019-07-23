@@ -1,6 +1,7 @@
 import React from "react";
 import { Wrapper } from "../../components/Wrapper";
-import { Button } from "../../components/Button";
+import { ButtonIcon } from "../../components/ButtonIcon";
+import iconLeave from "../../assets/icons/leave.png";
 
 class View3D extends React.Component {
   render() {
@@ -22,14 +23,13 @@ class View3D extends React.Component {
           frameborder="0"
           title="iFrame"
         />
-        <Button
-          action={this.props.shouldRender3DView}
-          text="close"
-          height="50px"
-          width="70px"
-          backgroundColor="black"
-          color="white"
-        />
+         <ButtonIcon
+              height="40px"
+              width="40px"
+              margin="20px"
+              icon={iconLeave}
+              action={this.props.shouldRender3DView}
+            />
       </Wrapper>
     );
   }
