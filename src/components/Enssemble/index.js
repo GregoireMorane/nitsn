@@ -1,5 +1,4 @@
 import React from "react";
-import HorlogeSvg from "../SVG/HorlogeSvg";
 import ChairSvg from "../SVG/ChairSvg";
 import { Wrapper } from "../Wrapper";
 import flatBackground from "../../assets/appartement4.png";
@@ -75,9 +74,6 @@ class Enssemble extends React.Component {
             dossierLateralSelectedColor={this.state.dossierLateralSelectedColor}
             assiseSelectedColor={this.state.assiseSelectedColor}
           />
-        </Wrapper>
-        <Wrapper position="absolute" left="50%" top="15%">
-          <HorlogeSvg width={80} height={80} />
         </Wrapper>
       </Wrapper>
     );
