@@ -1,15 +1,15 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const ButtonStyled = styled.button`
   width: ${props => props.width || null};
   height: ${props => props.height || null};
-  background-color: ${props => props.backgroundColor || "rgb(0,0,0,0)"};
-  border: ${props => props.border || "none"};
-  padding: ${props => props.padding || "0"};
-  margin: ${props => props.margin || "0"};
-  display: ${props => props.display || "initial"};
-  `;
+  background-color: ${props => props.backgroundColor || 'rgb(0,0,0,0)'};
+  border: ${props => props.border || 'none'};
+  padding: ${props => props.padding || '0'};
+  margin: ${props => props.margin || '0'};
+  display: ${props => props.display || 'initial'};
+`;
 
 const ButtonIcon = ({
   icon,
@@ -21,7 +21,7 @@ const ButtonIcon = ({
   color,
   padding,
   margin,
-  display
+  display,
 }) => (
   <ButtonStyled
     width={width}
@@ -35,7 +35,7 @@ const ButtonIcon = ({
     onClick={action}
     icon={icon}
   >
-    <img src={icon} alt="icon" width={width} height={height}/>
+    <img src={icon} alt="icon" width={width} height={height} />
   </ButtonStyled>
 );
 

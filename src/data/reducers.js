@@ -6,4 +6,5 @@ const rootReducer = combineReducers({
   horloge: horlogeReducer,
 })
 
+
 export default rootReducer;
