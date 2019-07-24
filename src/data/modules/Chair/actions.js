@@ -20,3 +20,24 @@ export function setDossierLatColor(color) {
     payload: { color },
   };
 }
+
+export function setInitialAssiseColor(color) {
+  return {
+    type: ChairActions.SetInitialAssiseColor,
+    payload: { color },
+  };
+}
+
+export function setInitialDossierColor(color) {
+  return {
+    type: ChairActions.SetInitialDossierColor,
+    payload: { color },
+  };
+}
+
+export function setInitialDossierLatColor(color) {
+  return {
+    type: ChairActions.SetInitialDossierLatColor,
+    payload: { color },
+  };
+}

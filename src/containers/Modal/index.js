@@ -1,11 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 import {
   setAssiseColor,
   setDossierColor,
   setDossierLatColor,
+  setInitialAssiseColor,
+  setInitialDossierColor,
+  setInitialDossierLatColor
 } from '../../data/modules/Chair/actions';
 
 import { Wrapper } from '../../components/Wrapper/';
@@ -50,6 +53,7 @@ class Modal extends React.Component {
     shouldRenderBlockChairElements: false,
     part: '',
     shouldRender3DView: false,
+    redirect: false,
     src3DMAX:
       'https://myhub.autodesk360.com/ue288ba40/shares/public/SHabee1QT1a327cf2b7afe96de93b1079cec?mode=embed',
   };
@@ -60,6 +64,8 @@ class Modal extends React.Component {
       screenWidth: window.innerWidth + 'px',
     });
   }
+
+
 
   shouldRenderBlockColors = color => {
     if (this.state.shouldRenderBlockColors === true) {
@@ -190,105 +196,119 @@ class Modal extends React.Component {
       </Wrapper>
     );
   };
+  shouldRedirectHome = () => {
+    this.props.dispatch(setInitialAssiseColor(this.props.chair.assiseColor))
+    this.props.dispatch(setInitialDossierColor(this.props.chair.dossierColor));
+    this.props.dispatch(setInitialDossierLatColor(this.props.chair.dossierLatColor));
+    this.setState({ redirect: true })
+  }
+  resetColors = () => {
+    this.props.dispatch(setDossierColor(this.props.location.initialColor.dossierColor))
+    this.props.dispatch(setDossierLatColor(this.props.location.initialColor.dossierLatColor));
+    this.props.dispatch(setAssiseColor(this.props.location.initialColor.assiseColor));
+  };
 
-  // resetColors = () => {
-  //   this.setState({
-  //     dossierSelectedColor: this.props.colorDossier,
-  //     dossierLateralSelectedColor: this.props.colorDossierLateral,
-  //     assiseSelectedColor: this.props.colorAssise
-  //   });
-  // };
+  cancelModif = () => {
+
+    this.props.dispatch(setDossierColor(this.props.location.initialColor.dossierColor))
+    this.props.dispatch(setDossierLatColor(this.props.location.initialColor.dossierLatColor));
+    this.props.dispatch(setAssiseColor(this.props.location.initialColor.assiseColor));
+    this.setState({ redirect: true });
+  }
 
   render() {
-    return (
-      <Wrapper display="flex" height={this.state.screenHeight} backgroundColor="#F7F7F7">
-        <Wrapper flex="3" display="flex" flexDirection="column" height="100%">
-          <Wrapper flex="3" width="100%" display="flex" alignItems="center">
-            <Wrapper flex="1" display="flex" justifyContent="center">
-              <img width="50px" height="50px" src={arrowRight} alt="arrow" />
+    if (this.state.redirect === true) {
+      return (<Redirect to="/" />)
+    } else {
+      return (
+        <Wrapper display="flex" height={this.state.screenHeight} backgroundColor="#F7F7F7">
+          <Wrapper flex="3" display="flex" flexDirection="column" height="100%">
+            <Wrapper flex="3" width="100%" display="flex" alignItems="center">
+              <Wrapper flex="1" display="flex" justifyContent="center">
+                <img width="50px" height="50px" src={arrowRight} alt="arrow" />
+              </Wrapper>
+              <Wrapper flex="3" display="flex" justifyContent="center" alignItems="center">
+                <ChairSvgfrom
+                  width="416"
+                  height="370"
+                  dossierSelectedColor={this.props.chair.dossierColor}
+                  dossierLateralSelectedColor={this.props.chair.dossierLatColor}
+                  assiseSelectedColor={this.props.chair.assiseColor}
+                />
+              </Wrapper>
+              <Wrapper flex="1" display="flex" justifyContent="center">
+                <img width="50px" height="50px" src={arrowLeft} alt="arrow" />
+              </Wrapper>
             </Wrapper>
-            <Wrapper flex="3" display="flex" justifyContent="center" alignItems="center">
-              <ChairSvgfrom
-                width="416"
-                height="370"
-                dossierSelectedColor={this.props.chair.dossierColor}
-                dossierLateralSelectedColor={this.props.chair.dossierLatColor}
-                assiseSelectedColor={this.props.chair.assiseColor}
+            <Wrapper flex="1" display="flex" width="100%" alignItems="center" justifyContent="center">
+              <ButtonIcon
+                height="40px"
+                width="40px"
+                margin="20px"
+                icon={iconLeave}
+                action={this.cancelModif}
+              />
+              <ButtonIcon height="40px" width="40px" margin="20px" icon={iconLike} action={this.shouldRedirectHome} />
+
+              <ButtonIcon
+                height="40px"
+                width="40px"
+                margin="20px"
+                icon={iconReset}
+                action={this.resetColors}
+              />
+              <ButtonIcon
+                height="40px"
+                width="40px"
+                margin="20px"
+                icon={icon3d}
+                action={this.shouldRender3DView}
               />
             </Wrapper>
-            <Wrapper flex="1" display="flex" justifyContent="center">
-              <img width="50px" height="50px" src={arrowLeft} alt="arrow" />
-            </Wrapper>
-          </Wrapper>
-          <Wrapper flex="1" display="flex" width="100%" alignItems="center" justifyContent="center">
-            <ButtonIcon
-              height="40px"
-              width="40px"
-              margin="20px"
-              icon={iconLeave}
-              action={this.props.shouldRenderModal}
-            />
-            <Link to={{ pathname: '/' }}>
-              <ButtonIcon height="40px" width="40px" margin="20px" icon={iconLike} />
-            </Link>
-            <ButtonIcon
-              height="40px"
-              width="40px"
-              margin="20px"
-              icon={iconReset}
-              action={this.resetColors}
-            />
-            <ButtonIcon
-              height="40px"
-              width="40px"
-              margin="20px"
-              icon={icon3d}
-              action={this.shouldRender3DView}
-            />
-          </Wrapper>
-        </Wrapper>
-        <Wrapper
-          flex="1"
-          display="flex"
-          flexDirection="column"
-          borderLeft="3px solid white"
-          height="100%"
-        >
-          {this.renderBlockColors()}
-          <Wrapper
-            flex="1"
-            display="flex"
-            width="100%"
-            borderBottom="3px solid white"
-            flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Wrapper>
-              <Typo text="Choix des motifs" fontWeight="bold" />
-            </Wrapper>
-            <Wrapper paddingTop="15px">
-              <img src={texture} width="100px" height="100px" alt="texture" />
-            </Wrapper>
           </Wrapper>
           <Wrapper
             flex="1"
             display="flex"
-            width="100%"
             flexDirection="column"
-            alignItems="center"
-            justifyContent="center"
+            borderLeft="3px solid white"
+            height="100%"
           >
-            <Wrapper>
-              <Typo text="Choix des tailles" fontWeight="bold" />
+            {this.renderBlockColors()}
+            <Wrapper
+              flex="1"
+              display="flex"
+              width="100%"
+              borderBottom="3px solid white"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Wrapper>
+                <Typo text="Choix des motifs" fontWeight="bold" />
+              </Wrapper>
+              <Wrapper paddingTop="15px">
+                <img src={texture} width="100px" height="100px" alt="texture" />
+              </Wrapper>
             </Wrapper>
-            <Wrapper paddingTop="15px">
-              <img src={size} width="100px" height="100px" alt="size" />
+            <Wrapper
+              flex="1"
+              display="flex"
+              width="100%"
+              flexDirection="column"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Wrapper>
+                <Typo text="Choix des tailles" fontWeight="bold" />
+              </Wrapper>
+              <Wrapper paddingTop="15px">
+                <img src={size} width="100px" height="100px" alt="size" />
+              </Wrapper>
             </Wrapper>
           </Wrapper>
         </Wrapper>
-      </Wrapper>
-    );
+      );
+    }
   }
 }
 

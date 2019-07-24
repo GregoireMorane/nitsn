@@ -35,7 +35,7 @@ class Home extends React.Component {
           left="20%"
           action={this.shouldRenderModal}
         >
-          <Link to={{ pathname: "/modal" }}>
+          <Link to={{ pathname: "/modal", initialColor:this.props.chair}}>
             <ChairSvg
               width={400}
               height={400}
