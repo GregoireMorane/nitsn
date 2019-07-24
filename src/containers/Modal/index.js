@@ -14,6 +14,9 @@ import iconLeave from "../../assets/icons/leave.png";
 import icon3d from "../../assets/icons/3d.png";
 import iconLike from "../../assets/icons/like.png";
 import iconReset from "../../assets/icons/resetsettings.png";
+import { tsImportEqualsDeclaration } from "@babel/types";
+import { Link } from 'react-router-dom';
+
 
 class Modal extends React.Component {
   state = {
@@ -37,9 +40,9 @@ class Modal extends React.Component {
     screenWidth: "",
     screenHeight: "",
     shouldRenderBlockColors: false,
-    dossierSelectedColor: "",
-    dossierLateralSelectedColor: "",
-    assiseSelectedColor: "",
+    dossierSelectedColor: this.props.location.state.dossierLateralSelectedColor,
+    dossierLateralSelectedColor: this.props.location.state.dossierLateralSelectedColor,
+    assiseSelectedColor: this.props.location.state.dossierLateralSelectedColor,
     shouldRenderBlockChairElements: false,
     part: "",
     shouldRender3DView: false,
@@ -47,15 +50,15 @@ class Modal extends React.Component {
       "https://myhub.autodesk360.com/ue288ba40/shares/public/SHabee1QT1a327cf2b7afe96de93b1079cec?mode=embed"
   };
 
-  componentWillMount() {
-    this.setState({
-      screenHeight: window.innerHeight + "px",
-      screenWidth: window.innerWidth + "px",
-      dossierSelectedColor: this.props.colorDossier,
-      dossierLateralSelectedColor: this.props.colorDossierLateral,
-      assiseSelectedColor: this.props.colorAssise
-    });
-  }
+  // componentWillMount() {
+  //   this.setState({
+  //     screenHeight: window.innerHeight + "px",
+  //     screenWidth: window.innerWidth + "px",
+  //     dossierSelectedColor: this.props.colorDossier,
+  //     dossierLateralSelectedColor: this.props.colorDossierLateral,
+  //     assiseSelectedColor: this.props.colorAssise
+  //   });
+  // }
 
   shouldRenderBlockColors = (color, part) => {
     if (this.state.shouldRenderBlockColors === true) {
@@ -118,12 +121,12 @@ class Modal extends React.Component {
     }
   };
 
-  validatePersonnalisation = () => {
-    this.props.setDossierColor(this.state.dossierSelectedColor);
-    this.props.setDossierLateralColor(this.state.dossierLateralSelectedColor);
-    this.props.setAssiseColor(this.state.assiseSelectedColor);
-    this.props.shouldRenderModal();
-  };
+  // validatePersonnalisation = () => {
+  //   this.props.setDossierColor(this.state.dossierSelectedColor);
+  //   this.props.setDossierLateralColor(this.state.dossierLateralSelectedColor);
+  //   this.props.setAssiseColor(this.state.assiseSelectedColor);
+  //   this.props.shouldRenderModal();
+  // };
 
   renderBlockColors = () => {
     if (this.state.shouldRenderBlockColors === true) {
@@ -223,14 +226,8 @@ class Modal extends React.Component {
   };
 
   render() {
-    if (this.state.shouldRender3DView === true) {
-      return (
-        <View3D
-          shouldRender3DView={this.shouldRender3DView}
-          src3DMAX={this.state.src3DMAX}
-        />
-      );
-    }
+    console.log("####################", this.state);
+    console.log("fffffffffffffff", this.props.location.state.dossierLateralSelectedColor)
     return (
       <Wrapper
         display="flex"
@@ -276,13 +273,14 @@ class Modal extends React.Component {
               icon={iconLeave}
               action={this.props.shouldRenderModal}
             />
-            <ButtonIcon
-              height="40px"
-              width="40px"
-              margin="20px"
-              icon={iconLike}
-              action={this.validatePersonnalisation}
-            />
+            <Link to={{ pathname: "/", state: this.state }}>
+              <ButtonIcon
+                height="40px"
+                width="40px"
+                margin="20px"
+                icon={iconLike}
+              />
+            </Link>
             <ButtonIcon
               height="40px"
               width="40px"

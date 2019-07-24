@@ -1,10 +1,34 @@
-import React from "react";
-
+import React, { Component } from 'react';
 import "./App.css";
+import { Switch, Route } from 'react-router-dom'
+import Modal from "././containers/Modal";
+import View3D from "././containers/View3D";
 import Home from "./containers/Home";
+import { Wrapper } from './components/Wrapper';
+import Header from "./containers/Header"
 
-function App() {
-  return <Home />;
+
+
+class App extends Component {
+
+  state = {
+    dossierSelectedColor: "#B0E0E6",
+    dossierLateralSelectedColor: "#B0E0E6",
+    assiseSelectedColor: "#B0E0E6",
+
+  };
+  render() {
+    console.log("APP", this.state)
+    return (
+      <Wrapper>
+        <Header />
+        <Switch>
+          <Route exact path="/" render={() => <Home dataState={this.state} />} />
+          <Route path="/modal" component={Modal} />
+          <Route path="/3dView" component={View3D} />
+        </Switch>
+      </Wrapper>
+    )
+  }
 }
-
 export default App;
