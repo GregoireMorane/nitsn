@@ -202,15 +202,15 @@ class Modal extends React.Component {
     this.setState({ redirect: true });
   };
   resetColors = () => {
-    this.props.dispatch(setDossierColor(this.props.location.initialColor.dossierColor));
-    this.props.dispatch(setDossierLatColor(this.props.location.initialColor.dossierLatColor));
-    this.props.dispatch(setAssiseColor(this.props.location.initialColor.assiseColor));
+    this.props.dispatch(setDossierColor(this.props.chair.initialDossierColor));
+    this.props.dispatch(setDossierLatColor(this.props.chair.initialDossierLatColor));
+    this.props.dispatch(setAssiseColor(this.props.chair.initialAssiseColor));
   };
 
   cancelModif = () => {
-    this.props.dispatch(setDossierColor(this.props.location.initialColor.dossierColor));
-    this.props.dispatch(setDossierLatColor(this.props.location.initialColor.dossierLatColor));
-    this.props.dispatch(setAssiseColor(this.props.location.initialColor.assiseColor));
+    this.props.dispatch(setDossierColor(this.props.chair.initialDossierColor));
+    this.props.dispatch(setDossierLatColor(this.props.chair.initialDossierLatColor));
+    this.props.dispatch(setAssiseColor(this.props.chair.initialAssiseColor));
     this.setState({ redirect: true });
   };
 

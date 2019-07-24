@@ -5,6 +5,4 @@ const rootReducer = combineReducers({
   chair: chairReducer,
   horloge: horlogeReducer,
 })
-
-
 export default rootReducer;

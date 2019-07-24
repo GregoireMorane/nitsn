@@ -7,7 +7,6 @@ import ChairSvg from "../../components/SVG/ChairSvg";
 import flatBackground from "../../assets/appartement4.png";
 import { Link } from "react-router-dom";
 
-
 class Home extends React.Component {
   componentWillMount = () => {
     this.setState({
