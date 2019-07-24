@@ -16,7 +16,8 @@ import { Typo } from '../../components/Typo/';
 import { Button } from '../../components/Button/';
 import { ButtonIcon } from '../../components/ButtonIcon';
 
-import ChairSvgfrom from '../../components/SVG/ChairSvg';
+import HorlogeSvg from '../../components/SVG/HorlogeSvg';
+import ChairSvg from '../../components/SVG/ChairSvg';
 import arrowLeft from '../../assets/icons/arrow-left.png';
 
 import arrowRight from '../../assets/icons/arrow-right.png';
@@ -228,7 +229,7 @@ class Modal extends React.Component {
                 <img width="50px" height="50px" src={arrowRight} alt="arrow" />
               </Wrapper>
               <Wrapper flex="3" display="flex" justifyContent="center" alignItems="center">
-                <ChairSvgfrom
+                <ChairSvg
                   width="416"
                   height="370"
                   dossierSelectedColor={this.props.chair.dossierColor}

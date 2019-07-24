@@ -2,6 +2,7 @@ import React from "react";
 import { Wrapper } from "../../components/Wrapper/";
 import { connect } from "react-redux";
 
+import HorlogeSvg from "../../components/SVG/HorlogeSvg";
 import ChairSvg from "../../components/SVG/ChairSvg";
 import flatBackground from "../../assets/appartement4.png";
 import { Link } from "react-router-dom";
@@ -35,13 +36,29 @@ class Home extends React.Component {
           left="20%"
           action={this.shouldRenderModal}
         >
-          <Link to={{ pathname: "/modal", initialColor:this.props.chair}}>
+          <Link to={{ pathname: "/modal", initialColor: this.props.chair }}>
             <ChairSvg
               width={400}
               height={400}
               dossierSelectedColor={this.props.chair.dossierColor}
               dossierLateralSelectedColor={this.props.chair.dossierLatColor}
               assiseSelectedColor={this.props.chair.assiseColor}
+            />
+
+          </Link>
+        </Wrapper>
+        <Wrapper
+          position="absolute"
+          top="9%"
+          left="83%"
+          action={this.shouldRenderModal}
+        >
+          <Link to={{ pathname: "/modal", initialColor: this.props.horloge }}>
+
+            <HorlogeSvg
+              width={400}
+              height={400}
+              stripeSelectedColor={this.props.horloge.stripeColor}
             />
           </Link>
         </Wrapper>
@@ -51,7 +68,8 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  chair: state.chair
+  chair: state.chair,
+  horloge: state.horloge
 });
 
 const mapDispatchToProps = dispatch => ({
