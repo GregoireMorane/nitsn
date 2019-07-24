@@ -1,15 +1,15 @@
 import { ChairActions } from './constants';
 
 const initialState = {
-  assiseColor: "#B0E0E6",
-  dossierColor: "#B0E0E6",
-  dossierLatColor: "#B0E0E6",
-  initialAssiseColor: "#B0E0E6",
-  initialDossierColor: "#B0E0E6",
-  initialDossierLatColor: "#B0E0E6",
-}
+  assiseColor: '#B0E0E6',
+  dossierColor: '#B0E0E6',
+  dossierLatColor: '#B0E0E6',
+  initialAssiseColor: '#B0E0E6',
+  initialDossierColor: '#B0E0E6',
+  initialDossierLatColor: '#B0E0E6',
+};
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
     case ChairActions.SetAssiseColor:
       return { ...state, assiseColor: action.payload.color };

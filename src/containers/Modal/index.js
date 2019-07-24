@@ -8,7 +8,7 @@ import {
   setDossierLatColor,
   setInitialAssiseColor,
   setInitialDossierColor,
-  setInitialDossierLatColor
+  setInitialDossierLatColor,
 } from '../../data/modules/Chair/actions';
 
 import { Wrapper } from '../../components/Wrapper/';
@@ -64,8 +64,6 @@ class Modal extends React.Component {
       screenWidth: window.innerWidth + 'px',
     });
   }
-
-
 
   shouldRenderBlockColors = color => {
     if (this.state.shouldRenderBlockColors === true) {
@@ -197,28 +195,27 @@ class Modal extends React.Component {
     );
   };
   shouldRedirectHome = () => {
-    this.props.dispatch(setInitialAssiseColor(this.props.chair.assiseColor))
+    this.props.dispatch(setInitialAssiseColor(this.props.chair.assiseColor));
     this.props.dispatch(setInitialDossierColor(this.props.chair.dossierColor));
     this.props.dispatch(setInitialDossierLatColor(this.props.chair.dossierLatColor));
-    this.setState({ redirect: true })
-  }
+    this.setState({ redirect: true });
+  };
   resetColors = () => {
-    this.props.dispatch(setDossierColor(this.props.location.initialColor.dossierColor))
+    this.props.dispatch(setDossierColor(this.props.location.initialColor.dossierColor));
     this.props.dispatch(setDossierLatColor(this.props.location.initialColor.dossierLatColor));
     this.props.dispatch(setAssiseColor(this.props.location.initialColor.assiseColor));
   };
 
   cancelModif = () => {
-
-    this.props.dispatch(setDossierColor(this.props.location.initialColor.dossierColor))
+    this.props.dispatch(setDossierColor(this.props.location.initialColor.dossierColor));
     this.props.dispatch(setDossierLatColor(this.props.location.initialColor.dossierLatColor));
     this.props.dispatch(setAssiseColor(this.props.location.initialColor.assiseColor));
     this.setState({ redirect: true });
-  }
+  };
 
   render() {
     if (this.state.redirect === true) {
-      return (<Redirect to="/" />)
+      return <Redirect to="/" />;
     } else {
       return (
         <Wrapper display="flex" height={this.state.screenHeight} backgroundColor="#F7F7F7">
@@ -240,7 +237,13 @@ class Modal extends React.Component {
                 <img width="50px" height="50px" src={arrowLeft} alt="arrow" />
               </Wrapper>
             </Wrapper>
-            <Wrapper flex="1" display="flex" width="100%" alignItems="center" justifyContent="center">
+            <Wrapper
+              flex="1"
+              display="flex"
+              width="100%"
+              alignItems="center"
+              justifyContent="center"
+            >
               <ButtonIcon
                 height="40px"
                 width="40px"
@@ -248,7 +251,13 @@ class Modal extends React.Component {
                 icon={iconLeave}
                 action={this.cancelModif}
               />
-              <ButtonIcon height="40px" width="40px" margin="20px" icon={iconLike} action={this.shouldRedirectHome} />
+              <ButtonIcon
+                height="40px"
+                width="40px"
+                margin="20px"
+                icon={iconLike}
+                action={this.shouldRedirectHome}
+              />
 
               <ButtonIcon
                 height="40px"

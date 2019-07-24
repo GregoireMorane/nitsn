@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import "./App.css";
-import { Switch, Route } from "react-router-dom";
-import Modal from "./containers/Modal";
-import View3D from "./containers/View3D";
-import Home from "./containers/Home";
-import { Wrapper } from "./components/Wrapper";
-import Header from "./containers/Header";
+import React, { Component } from 'react';
+import './App.css';
+import { Switch, Route } from 'react-router-dom';
+import Modal from './containers/Modal';
+import View3D from './containers/View3D';
+import Home from './containers/Home';
+import { Wrapper } from './components/Wrapper';
+import Header from './containers/Header';
 
 class App extends Component {
   render() {

@@ -1,18 +1,18 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const ButtonStyled = styled.button`
   width: ${props => props.width || null};
   height: ${props => props.height || null};
   background-color: ${props => props.backgroundColor || null};
   border: ${props => props.border || null};
-  text-align: ${props => props.textAlign || "center"};
-  color: ${props => props.color || "initial"};
-  font-size: ${props => props.fontSize || "16px"};
-  text-decoration: ${props => props.textDecoration || "none"};
-  padding: ${props => props.padding || "10px"};
-  margin: ${props => props.margin || "10px"};
-  display: ${props => props.display || "initial"};
+  text-align: ${props => props.textAlign || 'center'};
+  color: ${props => props.color || 'initial'};
+  font-size: ${props => props.fontSize || '16px'};
+  text-decoration: ${props => props.textDecoration || 'none'};
+  padding: ${props => props.padding || '10px'};
+  margin: ${props => props.margin || '10px'};
+  display: ${props => props.display || 'initial'};
 `;
 
 const Button = ({
@@ -28,7 +28,7 @@ const Button = ({
   textDecoration,
   padding,
   margin,
-  display
+  display,
 }) => (
   <ButtonStyled
     width={width}

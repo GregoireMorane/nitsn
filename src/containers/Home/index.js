@@ -1,16 +1,16 @@
-import React from "react";
-import { Wrapper } from "../../components/Wrapper/";
-import { connect } from "react-redux";
+import React from 'react';
+import { Wrapper } from '../../components/Wrapper/';
+import { connect } from 'react-redux';
 
-import ChairSvg from "../../components/SVG/ChairSvg";
-import flatBackground from "../../assets/appartement4.png";
-import { Link } from "react-router-dom";
+import ChairSvg from '../../components/SVG/ChairSvg';
+import flatBackground from '../../assets/appartement4.png';
+import { Link } from 'react-router-dom';
 
 class Home extends React.Component {
   componentWillMount = () => {
     this.setState({
-      screenHeight: window.innerHeight + "px",
-      screenWidth: window.innerWidth + "px"
+      screenHeight: window.innerHeight + 'px',
+      screenWidth: window.innerWidth + 'px',
     });
   };
 
@@ -29,13 +29,8 @@ class Home extends React.Component {
         >
           <img src={flatBackground} alt="flat" height="100%" width="100%" />
         </Wrapper>
-        <Wrapper
-          position="absolute"
-          top="40%"
-          left="20%"
-          action={this.shouldRenderModal}
-        >
-          <Link to={{ pathname: "/modal", initialColor:this.props.chair}}>
+        <Wrapper position="absolute" top="40%" left="20%" action={this.shouldRenderModal}>
+          <Link to={{ pathname: '/modal', initialColor: this.props.chair }}>
             <ChairSvg
               width={400}
               height={400}
@@ -51,14 +46,14 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  chair: state.chair
+  chair: state.chair,
 });
 
 const mapDispatchToProps = dispatch => ({
-  dispatch
+  dispatch,
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  mapDispatchToProps,
 )(Home);
