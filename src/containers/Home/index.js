@@ -4,10 +4,9 @@ import { connect } from "react-redux";
 
 import ChairSvg from "../../components/SVG/ChairSvg";
 import flatBackground from "../../assets/appartement4.png";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 class Home extends React.Component {
-
   componentWillMount = () => {
     this.setState({
       screenHeight: window.innerHeight + "px",
@@ -16,7 +15,6 @@ class Home extends React.Component {
   };
 
   render() {
-    console.log(this.props)
     return (
       <Wrapper
         height={this.state.screenHeight}
@@ -37,7 +35,7 @@ class Home extends React.Component {
           left="20%"
           action={this.shouldRenderModal}
         >
-          <Link to={{ pathname: "/modal", state: this.state }}>
+          <Link to={{ pathname: "/modal" }}>
             <ChairSvg
               width={400}
               height={400}
@@ -49,27 +47,18 @@ class Home extends React.Component {
         </Wrapper>
       </Wrapper>
     );
-  };
+  }
 }
 
 const mapStateToProps = state => ({
-  chair: state.chair,
+  chair: state.chair
 });
 
 const mapDispatchToProps = dispatch => ({
-  dispatch,
+  dispatch
 });
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps,
+  mapDispatchToProps
 )(Home);
-
-
-
-
-
-
-
-
-

@@ -1,22 +1,22 @@
-import ChairActions from './constants'
+import { ChairActions } from './constants';
 
-export function setAssiseColor(color){
+export function setAssiseColor(color) {
   return {
     type: ChairActions.SetAssiseColor,
-    payload:{color}
-  }
+    payload: { color },
+  };
 }
 
-export function setDossierColor(color){
+export function setDossierColor(color) {
   return {
     type: ChairActions.SetDossierColor,
-    payload:{color}
-  }
+    payload: { color },
+  };
 }
 
-export function setDossierLatColor(color){
+export function setDossierLatColor(color) {
   return {
     type: ChairActions.SetDossierLatColor,
-    payload:{color}
-  }
+    payload: { color },
+  };
 }
