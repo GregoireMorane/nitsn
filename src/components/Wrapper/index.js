@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const WrapperStyled = styled.div`
   height: ${props => props.height || null};
@@ -51,7 +51,7 @@ const Wrapper = ({
   borderLeft,
   alignItems,
   justifyContent,
-  action
+  action,
 }) => (
   <WrapperStyled
     height={height}

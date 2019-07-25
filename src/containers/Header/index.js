@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { Typo } from "../../components/Typo";
-import { Wrapper } from "../../components/Wrapper";
+import { Typo } from '../../components/Typo';
+import { Wrapper } from '../../components/Wrapper';
 
 class Header extends React.Component {
   render() {
