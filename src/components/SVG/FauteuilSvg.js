@@ -61,7 +61,7 @@ class FauteuilSvg extends React.Component {
           d="M841.905 270.012l11.36-6.973v-8.192l-283.252-33.271 5.281 17.122z"
         />
         <g
-          fill="red"
+          fill={this.props.dossierSelectedColor}
           stroke="#000"
           strokeWidth={1.417}
           strokeLinecap="round"
@@ -71,7 +71,7 @@ class FauteuilSvg extends React.Component {
           <path d="M464.227 317.955l140.613 16.517 2.086 6.762-113.938 69.951-29.538 6.982-20.328-65.895 6.215-36.064zM599.559 317.352l-173.496-20.379-48.272-156.482 29.536-6.982-29.536 6.982 113.938-69.948 29.539-6.982z" />
         </g>
         <g
-          fill="red"
+          fill={this.props.assiseSelectedColor}
           stroke="#000"
           strokeWidth={1.417}
           strokeLinecap="round"
