@@ -5,9 +5,10 @@ class HorlogeSvg extends React.Component {
     return (
 
       <svg
-        viewBox="0 0 1191 842"
-        width={this.props.width}
-        height={this.props.height} >
+        viewBox="375 150 400 400"
+        width={90}
+        height={90}
+      >
         <path fill="none" d="M412.474 559.196h348.935V143.309H412.474v415.887" />
 
         <path

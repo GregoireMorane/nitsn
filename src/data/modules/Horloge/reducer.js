@@ -1,9 +1,8 @@
 import { HorlogeActions } from './constants';
 
 const initialState = {
-  stripeColor: "pink",
-  initialStripeColor: "green",
-
+  stripeColor: "red",
+  initialStripeColor: "pink",
 }
 
 export default function (state = initialState, action) {
