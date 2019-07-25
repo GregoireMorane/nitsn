@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class FauteuilSvg extends React.Component {
   render() {

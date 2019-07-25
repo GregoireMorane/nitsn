@@ -13,7 +13,3 @@ export function SetInitialStripeColor(color) {
     payload: { color },
   };
 }
-
-
-
-

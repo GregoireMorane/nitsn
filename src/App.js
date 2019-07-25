@@ -15,7 +15,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/modal" component={Modal} />
-          <Route path="/3dView" component={View3D} />
+          <Route path="/view-3d" component={View3D} />
         </Switch>
       </Wrapper>
     );

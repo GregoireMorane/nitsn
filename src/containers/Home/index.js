@@ -1,11 +1,12 @@
 import React from 'react';
-import { Wrapper } from '../../components/Wrapper/';
 import { connect } from 'react-redux';
-import HorlogeSvg from "../../components/SVG/HorlogeSvg";
-import ChairSvg from "../../components/SVG/ChairSvg";
-import flatBackground from "../../assets/appartement4.png";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+
+import { Wrapper } from '../../components/Wrapper/';
+
+import HorlogeSvg from '../../components/SVG/HorlogeSvg';
 import FauteuilSvg from '../../components/SVG/FauteuilSvg';
+import flatBackground from '../../assets/appartement4.png';
 
 class Home extends React.Component {
   render() {
@@ -23,13 +24,8 @@ class Home extends React.Component {
         >
           <img src={flatBackground} alt="flat" height="100%" width="100%" />
         </Wrapper>
-        <Wrapper
-          position="absolute"
-          top="30%"
-          left="10%"
-          action={this.shouldRenderModal}
-        >
-          <Link to={{ pathname: "/modal", initialColor: this.props.chair }}>
+        <Wrapper position="absolute" top="30%" left="10%">
+          <Link to={{ pathname: '/modal', initialColor: this.props.chair }}>
             <FauteuilSvg
               width={300}
               height={300}
@@ -39,16 +35,9 @@ class Home extends React.Component {
             />
           </Link>
         </Wrapper>
-        <Wrapper
-          position="absolute"
-          top="22%"
-          left="92%"
-          action={this.shouldRenderModal}
-        >
-          <Link to={{ pathname: "/modal", initialColor: this.props.horloge }}>
-            <HorlogeSvg
-              stripeSelectedColor={this.props.horloge.stripeColor}
-            />
+        <Wrapper position="absolute" top="22%" left="92%">
+          <Link to={{ pathname: '/modal', initialColor: this.props.horloge }}>
+            <HorlogeSvg stripeSelectedColor={this.props.horloge.stripeColor} />
           </Link>
         </Wrapper>
       </Wrapper>
@@ -58,7 +47,7 @@ class Home extends React.Component {
 
 const mapStateToProps = state => ({
   chair: state.chair,
-  horloge: state.horloge
+  horloge: state.horloge,
 });
 
 const mapDispatchToProps = dispatch => ({
