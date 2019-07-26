@@ -3,7 +3,11 @@ import React from 'react';
 class FauteuilSvg extends React.Component {
   render() {
     return (
-      <svg viewBox="280 20 630 640" width={this.props.width} height={this.props.height}>
+      <svg
+        viewBox="280 20 630 640"
+        width={this.props.width}
+        height={this.props.height}
+      >
         <path
           fill="#F0CA8C"
           stroke="#000"

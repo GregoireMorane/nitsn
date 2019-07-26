@@ -9,7 +9,10 @@ import {
   setInitialDossierColor,
 } from '../../data/modules/Chair/actions';
 
-import { setStripeColor, SetInitialStripeColor } from '../../data/modules/Horloge/actions';
+import {
+  setStripeColor,
+  SetInitialStripeColor,
+} from '../../data/modules/Horloge/actions';
 
 import { Wrapper } from '../../components/Wrapper/';
 import { Typo } from '../../components/Typo/';
@@ -95,7 +98,8 @@ class Modal extends React.Component {
 
   shouldRenderBlockChairElements = () => {
     this.setState({
-      shouldRenderBlockChairElements: !this.state.shouldRenderBlockChairElements,
+      shouldRenderBlockChairElements: !this.state
+        .shouldRenderBlockChairElements,
     });
   };
 
@@ -171,7 +175,10 @@ class Modal extends React.Component {
             justifyContent="center"
           >
             <Wrapper>
-              <Typo text="Choix de l'element a personnnaliser" fontWeight="bold" />
+              <Typo
+                text="Choix de l'element a personnnaliser"
+                fontWeight="bold"
+              />
             </Wrapper>
             <Wrapper paddingTop="15px">
               <Wrapper action={() => this.shouldSetPart('dossier')}>
@@ -196,7 +203,10 @@ class Modal extends React.Component {
             justifyContent="center"
           >
             <Wrapper>
-              <Typo text="Choix de l'element a personnnaliser" fontWeight="bold" />
+              <Typo
+                text="Choix de l'element a personnnaliser"
+                fontWeight="bold"
+              />
             </Wrapper>
             <Wrapper paddingTop="15px">
               <Wrapper action={() => this.shouldSetPart('bande')}>
@@ -231,11 +241,15 @@ class Modal extends React.Component {
   shouldRedirectHome = () => {
     if (this.props.match.params.name === 'chair') {
       this.props.dispatch(setInitialAssiseColor(this.props.chair.assiseColor));
-      this.props.dispatch(setInitialDossierColor(this.props.chair.dossierColor));
+      this.props.dispatch(
+        setInitialDossierColor(this.props.chair.dossierColor),
+      );
       this.setState({ redirect: true });
     }
     if (this.props.match.params.name === 'horloge') {
-      this.props.dispatch(SetInitialStripeColor(this.props.horloge.stripeColor));
+      this.props.dispatch(
+        SetInitialStripeColor(this.props.horloge.stripeColor),
+      );
       this.setState({ redirect: true });
     }
   };
@@ -243,21 +257,29 @@ class Modal extends React.Component {
   resetColors = () => {
     if (this.props.match.params.name === 'chair') {
       this.props.dispatch(setAssiseColor(this.props.chair.initialAssiseColor));
-      this.props.dispatch(setDossierColor(this.props.chair.initialDossierColor));
+      this.props.dispatch(
+        setDossierColor(this.props.chair.initialDossierColor),
+      );
     }
     if (this.props.match.params.name === 'horloge') {
-      this.props.dispatch(setStripeColor(this.props.horloge.initialStripeColor));
+      this.props.dispatch(
+        setStripeColor(this.props.horloge.initialStripeColor),
+      );
     }
   };
 
   cancelModif = () => {
     if (this.props.match.params.name === 'chair') {
       this.props.dispatch(setAssiseColor(this.props.chair.initialAssiseColor));
-      this.props.dispatch(setDossierColor(this.props.chair.initialDossierColor));
+      this.props.dispatch(
+        setDossierColor(this.props.chair.initialDossierColor),
+      );
       this.setState({ redirect: true });
     }
     if (this.props.match.params.name === 'horloge') {
-      this.props.dispatch(setStripeColor(this.props.horloge.initialStripeColor));
+      this.props.dispatch(
+        setStripeColor(this.props.horloge.initialStripeColor),
+      );
       this.setState({ redirect: true });
     }
   };
@@ -275,7 +297,9 @@ class Modal extends React.Component {
       );
     }
     if (this.props.match.params.name === 'horloge') {
-      return <HorlogeSvg stripeSelectedColor={this.props.horloge.stripeColor} />;
+      return (
+        <HorlogeSvg stripeSelectedColor={this.props.horloge.stripeColor} />
+      );
     }
     return null;
   };
@@ -285,13 +309,22 @@ class Modal extends React.Component {
       return <Redirect to="/" />;
     } else {
       return (
-        <Wrapper display="flex" height={this.state.screenHeight} backgroundColor="#F7F7F7">
+        <Wrapper
+          display="flex"
+          height={this.state.screenHeight}
+          backgroundColor="#F7F7F7"
+        >
           <Wrapper flex="3" display="flex" flexDirection="column" height="100%">
             <Wrapper flex="3" width="100%" display="flex" alignItems="center">
               <Wrapper flex="1" display="flex" justifyContent="center">
                 <img width="50px" height="50px" src={arrowRight} alt="arrow" />
               </Wrapper>
-              <Wrapper flex="3" display="flex" justifyContent="center" alignItems="center">
+              <Wrapper
+                flex="3"
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+              >
                 {this.renderImage()}
               </Wrapper>
               <Wrapper flex="1" display="flex" justifyContent="center">
