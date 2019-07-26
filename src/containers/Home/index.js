@@ -25,7 +25,7 @@ class Home extends React.Component {
           <img src={flatBackground} alt="flat" height="100%" width="100%" />
         </Wrapper>
         <Wrapper position="absolute" top="30%" left="10%">
-          <Link to={{ pathname: '/modal', initialColor: this.props.chair }}>
+          <Link to={{ pathname: '/modal/chair' }}>
             <FauteuilSvg
               width={300}
               height={300}
@@ -36,7 +36,7 @@ class Home extends React.Component {
           </Link>
         </Wrapper>
         <Wrapper position="absolute" top="22%" left="92%">
-          <Link to={{ pathname: '/modal', initialColor: this.props.horloge }}>
+          <Link to={{ pathname: '/modal/horloge' }}>
             <HorlogeSvg stripeSelectedColor={this.props.horloge.stripeColor} />
           </Link>
         </Wrapper>
